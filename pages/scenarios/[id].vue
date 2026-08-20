@@ -34,6 +34,9 @@ const {
       <header class="mb-5 flex flex-wrap items-start justify-between gap-4 border-b border-line pb-5">
         <div>
           <NuxtLink class="text-sm font-medium text-ink/60 hover:text-ink" to="/scenarios">Back to scenarios</NuxtLink>
+          <div v-if="scenario.tags?.length" class="mt-3 flex flex-wrap gap-1.5">
+            <span v-for="tag in scenario.tags" :key="tag" class="rounded-full bg-paper px-2 py-1 text-[11px] font-medium text-ink/55">{{ tag }}</span>
+          </div>
           <h1 class="mt-3 font-serif text-3xl text-ink md:text-4xl">{{ scenario.title }}</h1>
           <p class="mt-2 max-w-3xl text-sm leading-6 text-ink/70">{{ scenario.proposition }}</p>
         </div>
@@ -95,8 +98,12 @@ const {
             :meta-disputes="state.metaDisputes"
           />
           <ConversationGraph :state="state" :scenario="scenario" />
+          <section v-if="scenario.researchFocus" class="rounded-lg border border-line bg-white p-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-ink/45">Research focus</p>
+            <p class="mt-2 text-xs leading-5 text-ink/65">{{ scenario.researchFocus }}</p>
+          </section>
           <section class="rounded-lg border border-line bg-white p-4 text-xs leading-5 text-ink/60">
-            Identity context is intentionally not modeled in this MVP. Future versions may represent identity context separately from beliefs, conversational style, emotional state, and personal stakes.
+            Identity context is intentionally not modeled as a cause of beliefs or behavior. Future versions may represent identity context separately from beliefs, conversational style, emotional state, and personal stakes.
           </section>
         </aside>
       </div>

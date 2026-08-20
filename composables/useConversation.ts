@@ -11,6 +11,7 @@ import { moveMetadata } from '~/domain/moves'
 import { applyMoveEffects } from '~/utils/conversation/applyMoveEffects'
 import { calculateLoopRisk } from '~/utils/conversation/calculateLoopRisk'
 import { detectConversationLoop } from '~/utils/conversation/detectConversationLoop'
+import { buildPathResearchSummary } from '~/utils/conversation/research'
 import { restoreConversationState, snapshotState } from '~/utils/conversation/restoreConversationState'
 
 function uniqPush(items: string[], value?: string) {
@@ -78,11 +79,12 @@ export function useConversation(scenario: ConversationScenario) {
   const isTerminal = computed(() => state.value.status !== 'active')
 
   function completedLabel() {
-    return state.value.completedPaths.length === 0 ? 'First path' : 'Second path'
+    return `Path ${state.value.completedPaths.length + 1}`
   }
 
   function recordCompletedPath(divergenceTurn?: number) {
     const existingReplay = state.value.replayingFromTurn
+    const moveHistory = cloneData(state.value.moveHistory)
     const path: CompletedPath = {
       id: `${Date.now()}-${state.value.completedPaths.length}`,
       label: completedLabel(),
@@ -91,8 +93,9 @@ export function useConversation(scenario: ConversationScenario) {
       metaDisputeCount: state.value.metaDisputes.length,
       issueClarity: state.value.metrics.issueClarity,
       defensiveness: state.value.metrics.defensiveness,
-      moveHistory: cloneData(state.value.moveHistory),
-      divergenceTurn: divergenceTurn ?? existingReplay
+      moveHistory,
+      divergenceTurn: divergenceTurn ?? existingReplay,
+      research: buildPathResearchSummary(moveHistory)
     }
     state.value.completedPaths.push(path)
   }
@@ -185,10 +188,10 @@ export function useConversation(scenario: ConversationScenario) {
   const divergenceTurn = computed(() => {
     const first = state.value.completedPaths[0]
     if (!first) return undefined
-    const unproductiveIndex = first.moveHistory.findIndex((move) =>
-      ['position_exaggeration', 'motive_attribution', 'interpretive_lock', 'meta_argument', 'presuppositional_accusation', 'epistemic_invalidation', 'sarcasm'].includes(move.moveType)
+    const highLoopIndex = first.moveHistory.findIndex(
+      (move) => moveMetadata[move.moveType].loopAffinity === 'high'
     )
-    return unproductiveIndex >= 0 ? unproductiveIndex : Math.max(0, Math.floor(first.moveHistory.length / 2) - 1)
+    return highLoopIndex >= 0 ? highLoopIndex : Math.max(0, Math.floor(first.moveHistory.length / 2) - 1)
   })
 
   return {
