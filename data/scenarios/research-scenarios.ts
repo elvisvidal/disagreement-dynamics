@@ -1,0 +1,211 @@
+import { createResearchScenario } from './research-scenario-factory'
+
+export const climatePolicy = createResearchScenario({
+  id: 'climate-policy', title: 'Climate policy', domain: 'public policy',
+  description: 'A disagreement about climate risk, economic costs, and how quickly governments should intervene.',
+  proposition: 'Should governments impose stronger near-term limits on carbon emissions even when they raise some consumer and business costs?',
+  partnerName: 'Maya', partnerPosition: 'Maya supports stronger near-term emissions limits despite some economic cost.',
+  opening: 'Waiting for climate policy to be painless means waiting too long. I think governments should accept some near-term cost to reduce long-term risk.',
+  clarification: 'How much near-term cost would you consider justified, and what kind of climate benefit would have to come with it?',
+  evidenceQuestion: 'I would want credible estimates of emissions reduced, expected climate damages avoided, distributional effects, and whether lower-cost alternatives achieve the same result.',
+  evidenceLimit: 'Then we have an evidence impasse: we agree on the relevant measurements, but not on what the actual policy package would deliver.',
+  valueTradeoff: 'Even with uncertain estimates, I put more weight on avoiding irreversible climate risk; you may put more weight on present affordability and flexibility.',
+  userConcern: 'whether stronger emissions limits impose disproportionate costs for uncertain benefits',
+  exaggeratedConcern: 'So you are fine making ordinary people poorer as long as the policy looks green?',
+  partnerCorrection: 'No. I care about distributional costs. My claim is that some cost can be justified if the risk reduction is large enough and the burden is designed fairly.',
+  productiveRestatement: 'So the narrower question is not “costs or no costs,” but which costs are justified by which expected risk reductions.',
+  directChallenge: 'My concern is that expensive mandates can produce modest emissions reductions while hitting lower-income households hardest.',
+  commonGround: 'I think we both want lower climate risk without wasting resources or pushing avoidable costs onto poorer households.',
+  evidenceRequest: 'What evidence would convince you that a specific restriction costs too much for the emissions it avoids?',
+  valueResponse: 'Maybe part of this is how we weigh uncertain future harm against visible present costs.',
+  finalClearDisagreement: 'I understand the precautionary case, but I require a higher confidence that the policy benefit justifies its immediate cost.',
+  finalValueDisagreement: 'We mainly differ on how much present cost is acceptable to reduce uncertain but potentially severe future harm.'
+})
+
+export const immigrationBorders = createResearchScenario({
+  id: 'immigration-borders', title: 'Immigration and borders', domain: 'public policy',
+  description: 'A disagreement about migration, enforcement, humanitarian obligations, and state capacity.',
+  proposition: 'Should a country make legal immigration easier while also enforcing its borders more consistently?',
+  partnerName: 'Daniel', partnerPosition: 'Daniel favors broader legal pathways combined with predictable border enforcement.',
+  opening: 'I do not think “open borders versus closed borders” is a useful choice. We can expand legal routes and still enforce rules consistently.',
+  clarification: 'What would “expand legal routes” mean in practice, and what kind of enforcement do you think remains necessary?',
+  evidenceQuestion: 'I would compare labor-market needs, processing capacity, irregular crossings, humanitarian outcomes, fiscal effects, and whether legal pathways actually reduce unauthorized entry.',
+  evidenceLimit: 'We would need much more specific data about capacity, labor demand, and migration responses before deciding whether that package works.',
+  valueTradeoff: 'Part of the disagreement may be how we balance individual opportunity and humanitarian protection against control, predictability, and institutional capacity.',
+  userConcern: 'whether expanding legal migration can coexist with credible limits and public capacity',
+  exaggeratedConcern: 'So basically anyone who wants to come should be allowed in and the border is just symbolic?',
+  partnerCorrection: 'No. I explicitly support limits and enforcement. I am arguing that legal pathways can make those limits more workable and less arbitrary.',
+  productiveRestatement: 'Then the question is whether broader legal routes make enforcement more credible rather than whether borders should exist.',
+  directChallenge: 'I worry that expanding pathways before fixing capacity simply increases pressure on housing, services, and administration.',
+  commonGround: 'I think we agree that a system should be both humane and administratively credible.',
+  evidenceRequest: 'What outcome would show that expanded legal routes are reducing rather than adding to system pressure?',
+  valueResponse: 'This may partly be a disagreement about how much institutional strain is acceptable in exchange for greater opportunity and protection.',
+  finalClearDisagreement: 'I understand your combined model, but I think capacity constraints should be solved before significantly expanding admission.',
+  finalValueDisagreement: 'We differ on how to weigh humanitarian and opportunity gains against the risk of overloading public systems.'
+})
+
+export const campusSpeech = createResearchScenario({
+  id: 'campus-speech', title: 'Free speech on campus', domain: 'education',
+  description: 'A disagreement about controversial speakers, harm, academic inquiry, and institutional responsibility.',
+  proposition: 'Should universities permit invited speakers whose views many students consider deeply offensive?',
+  partnerName: 'Nora', partnerPosition: 'Nora believes universities should usually permit controversial invited speakers unless there is a concrete safety or disruption risk.',
+  opening: 'Universities should be unusually tolerant of controversial speech. Offense alone is not enough reason to cancel an invited speaker.',
+  clarification: 'Where do you draw the line between offensive speech, targeted harassment, and a genuine safety risk?',
+  evidenceQuestion: 'I would look at the actual event format, threats, disruption risk, whether students are compelled to attend, and whether the speech targets individuals rather than arguing a public position.',
+  evidenceLimit: 'Then the disagreement depends on facts about the event and its risks that we do not have in the abstract.',
+  valueTradeoff: 'I give a strong presumption to open inquiry; you may give more weight to the university’s duty to protect students from targeted degradation or exclusion.',
+  userConcern: 'whether open-speech rules can ignore predictable harm or intimidation for students',
+  exaggeratedConcern: 'So universities should give a stage to absolutely anyone, no matter how abusive or dangerous they are?',
+  partnerCorrection: 'No. I excluded direct threats, harassment, and concrete safety problems. My claim is about controversial viewpoints, not unlimited conduct.',
+  productiveRestatement: 'So the narrower disagreement is where controversial advocacy becomes targeted harm or unacceptable disruption.',
+  directChallenge: 'My concern is that “just offense” can understate how an event affects students who are directly demeaned by the message.',
+  commonGround: 'I think we both want universities to protect inquiry and also prevent genuine intimidation.',
+  evidenceRequest: 'What facts about a proposed event would make you support cancellation rather than protest or counterspeech?',
+  valueResponse: 'This sounds partly like different default weights for open inquiry and protective institutional duties.',
+  finalClearDisagreement: 'I accept a strong speech presumption, but I would define institutional harm more broadly than you would.',
+  finalValueDisagreement: 'We differ on how much risk of exclusion or harm a university should tolerate to preserve a broad speech principle.'
+})
+
+export const policingPublicSafety = createResearchScenario({
+  id: 'policing-public-safety', title: 'Policing and public safety', domain: 'public policy',
+  description: 'A disagreement about police funding, prevention, accountability, and public safety.',
+  proposition: 'Should cities shift some police funding toward non-police crisis response and prevention programs?',
+  partnerName: 'Chris', partnerPosition: 'Chris supports shifting some responsibilities and funding to specialized non-police services.',
+  opening: 'Police are asked to handle problems they are not always best equipped for. Some crisis calls and prevention work should move to specialized services.',
+  clarification: 'Which calls do you think can safely move away from police, and who decides when a situation is too risky?',
+  evidenceQuestion: 'I would want response-time data, injury rates, repeat-call rates, crime outcomes, responder safety, and clear rules for when police backup is required.',
+  evidenceLimit: 'Without program-specific outcomes and comparable local conditions, neither of us can confidently say how large the shift should be.',
+  valueTradeoff: 'You may place more weight on minimizing the chance of an under-response to danger; I place more weight on matching the responder to the actual problem and reducing unnecessary coercion.',
+  userConcern: 'whether non-police response can preserve safety when situations are unpredictable',
+  exaggeratedConcern: 'So when someone calls for help in a dangerous situation, you want to send a social worker instead of police?',
+  partnerCorrection: 'Not for clearly dangerous calls. I am talking about categories where trained clinicians or civilian responders may be more appropriate, with escalation protocols when risk changes.',
+  productiveRestatement: 'Then the dispute is which call categories can be triaged safely, not whether police should disappear from emergency response.',
+  directChallenge: 'My concern is that dispatchers often cannot know in advance when an apparently low-risk call will become violent.',
+  commonGround: 'I think we both want fewer unnecessary confrontations without leaving responders or residents exposed to avoidable danger.',
+  evidenceRequest: 'What failure rate or safety outcome would make you conclude that a civilian-response category is too risky?',
+  valueResponse: 'The remaining disagreement may be about how much safety uncertainty is acceptable when reducing coercive responses.',
+  finalClearDisagreement: 'I support specialized response in some cases, but I would keep police involvement in a broader set of uncertain calls than you would.',
+  finalValueDisagreement: 'We differ on how to weigh the risk of under-response against the harms of unnecessary police involvement.'
+})
+
+export const abortionLaw = createResearchScenario({
+  id: 'abortion-law', title: 'Abortion law', domain: 'law and ethics',
+  description: 'A disagreement about bodily autonomy, fetal moral status, legal limits, and difficult edge cases.',
+  proposition: 'How should abortion law balance bodily autonomy with claims about fetal moral status?',
+  partnerName: 'Leah', partnerPosition: 'Leah believes abortion should remain broadly legal, with later limits depending on medical and developmental circumstances.',
+  opening: 'I think the law should give substantial weight to the pregnant person’s bodily autonomy, especially early in pregnancy, while allowing more regulation later.',
+  clarification: 'What changes later in pregnancy for you: viability, development, medical risk, or something else?',
+  evidenceQuestion: 'Some parts are empirical, such as viability and medical outcomes, but the central moral-status question is not something data alone can settle.',
+  evidenceLimit: 'Then we can clarify medical facts, but evidence alone cannot settle the moral premise each of us brings to the law.',
+  valueTradeoff: 'The core conflict is between competing moral claims: control over one’s body and the moral status attributed to developing fetal life.',
+  userConcern: 'whether bodily autonomy can by itself settle the moral and legal status of fetal life',
+  exaggeratedConcern: 'So you think fetal life has no moral value at all as long as someone wants an abortion?',
+  partnerCorrection: 'No. I can assign fetal life moral value without thinking that value automatically overrides bodily autonomy at every stage and in every circumstance.',
+  productiveRestatement: 'So the narrower question is when, if ever, fetal moral claims become strong enough to justify legal limits on bodily autonomy.',
+  directChallenge: 'My concern is that autonomy does not automatically answer when another developing life has morally relevant interests.',
+  commonGround: 'I think we agree that both bodily autonomy and developing human life are morally serious, even if we weight them differently.',
+  evidenceRequest: 'Which empirical facts would actually change your legal position, and which parts are fundamentally moral judgments?',
+  valueResponse: 'This may be a case where better facts clarify the boundaries but cannot remove the underlying value conflict.',
+  finalClearDisagreement: 'I understand that your position recognizes fetal moral value; I still think you give bodily autonomy priority for longer than I would.',
+  finalValueDisagreement: 'We differ on when fetal moral status becomes sufficient to justify coercive legal limits on bodily autonomy.'
+})
+
+export const taxationWelfare = createResearchScenario({
+  id: 'taxation-welfare', title: 'Taxes and welfare', domain: 'economics and public policy',
+  description: 'A disagreement about redistribution, incentives, fairness, and social insurance.',
+  proposition: 'Should high earners pay substantially higher marginal tax rates to fund a stronger social safety net?',
+  partnerName: 'Owen', partnerPosition: 'Owen supports more progressive taxation to finance stronger public services and income support.',
+  opening: 'People who benefit most from the economy can reasonably contribute a larger share so that basic security is not dependent on luck.',
+  clarification: 'How progressive should the system become before you think incentive or avoidance effects outweigh the extra revenue?',
+  evidenceQuestion: 'I would want evidence on revenue actually collected, labor and investment responses, avoidance, poverty reduction, service quality, and who ultimately bears the tax.',
+  evidenceLimit: 'Without a specific tax design and credible behavioral estimates, we cannot settle the size of the tradeoff.',
+  valueTradeoff: 'Even with the same forecasts, we might differ over how much inequality is acceptable and how strongly claims of earned income constrain redistribution.',
+  userConcern: 'whether higher marginal taxes improve welfare enough to justify incentive costs and coercive redistribution',
+  exaggeratedConcern: 'So once someone earns enough, you basically think the government is entitled to whatever portion it wants?',
+  partnerCorrection: 'No. Tax levels can become excessive. I am arguing for a more progressive schedule, not unlimited claims on income.',
+  productiveRestatement: 'Then the real question is where the marginal social benefit of redistribution stops exceeding its economic and liberty costs.',
+  directChallenge: 'My concern is that high marginal rates can reduce investment, encourage avoidance, and treat earned income too casually.',
+  commonGround: 'I think we both want a system that funds basic security without destroying the incentives and activity that generate the tax base.',
+  evidenceRequest: 'What behavioral or revenue result would make you conclude that a proposed top rate is counterproductive?',
+  valueResponse: 'Even after estimating the effects, we still have to decide what distribution of burdens and opportunities counts as fair.',
+  finalClearDisagreement: 'I understand the insurance and opportunity argument, but I place a stronger constraint on how progressively the state should tax additional earnings.',
+  finalValueDisagreement: 'We differ on how to balance distributive equality and social insurance against property claims, incentives, and individual control over earnings.'
+})
+
+export const genderNeutralLanguage = createResearchScenario({
+  id: 'gender-neutral-language', title: 'Gender-neutral language', domain: 'culture and institutions',
+  description: 'A disagreement about inclusive language, social norms, clarity, and compelled expression.',
+  proposition: 'Should workplaces and schools actively encourage gender-neutral language and requested pronouns?',
+  partnerName: 'Riley', partnerPosition: 'Riley supports institutional norms encouraging gender-neutral language and respectful use of requested pronouns.',
+  opening: 'Using someone’s requested form of address is usually a small accommodation, and institutions can encourage that without turning every mistake into misconduct.',
+  clarification: 'What does “encourage” mean to you, and where would you distinguish courtesy from a formal speech requirement?',
+  evidenceQuestion: 'I would look at whether the policy reduces exclusion, how often conflicts occur, whether sanctions are proportionate, and whether people retain room for good-faith mistakes or objections.',
+  evidenceLimit: 'Then we need specific policy language and outcome data; broad claims about what every policy does will not settle it.',
+  valueTradeoff: 'The tension is between norms of recognition and inclusion on one side and concerns about compelled expression and institutional overreach on the other.',
+  userConcern: 'whether inclusive-language norms can become coercive or punish good-faith disagreement',
+  exaggeratedConcern: 'So people should be forced to say whatever words someone else demands or be punished?',
+  partnerCorrection: 'No. I explicitly distinguished respectful norms from treating every mistake or disagreement as punishable misconduct.',
+  productiveRestatement: 'Then the narrower issue is what kinds of institutional encouragement remain compatible with meaningful freedom of expression.',
+  directChallenge: 'My concern is that a courtesy norm can become a disciplinary rule that leaves little space for conscientious disagreement or ordinary mistakes.',
+  commonGround: 'I think we both want people treated respectfully without making institutions police every contested expression.',
+  evidenceRequest: 'What policy language or sanction would make you say an inclusion rule has become too coercive?',
+  valueResponse: 'This may come down to where we place the boundary between social courtesy and compelled institutional speech.',
+  finalClearDisagreement: 'I support respectful voluntary norms, but I would permit a wider zone of dissent from institutional language expectations than you would.',
+  finalValueDisagreement: 'We differ on how much expressive constraint institutions may impose to create a norm of recognition and inclusion.'
+})
+
+export const vaccineMandates = createResearchScenario({
+  id: 'vaccine-mandates', title: 'Vaccination mandates', domain: 'public health',
+  description: 'A disagreement about public-health requirements, individual autonomy, external risk, and exemptions.',
+  proposition: 'When, if ever, should governments or institutions require vaccination for participation in shared settings?',
+  partnerName: 'Priya', partnerPosition: 'Priya believes vaccine requirements can be justified in some high-risk shared settings when benefits are strong and exemptions are carefully defined.',
+  opening: 'I do not support mandates automatically, but in some settings a vaccination requirement can be justified when one person’s choice materially changes risk for others.',
+  clarification: 'What level of transmission or severe-disease reduction would you require before a mandate becomes justified?',
+  evidenceQuestion: 'I would want disease-specific evidence on transmission, severe outcomes, durability, adverse events, alternatives such as testing, and the vulnerability of people in the setting.',
+  evidenceLimit: 'Then this cannot be answered responsibly without the disease, vaccine, setting, and current evidence being specified.',
+  valueTradeoff: 'Even with the same evidence, we may differ on how much external risk justifies restricting bodily autonomy or access to shared institutions.',
+  userConcern: 'whether reducing health risk for others justifies coercive medical requirements',
+  exaggeratedConcern: 'So if officials say something improves public health, people should lose control over their own medical decisions?',
+  partnerCorrection: 'No. I am describing a threshold case involving meaningful external risk, strong evidence, proportionality, and alternatives—not unlimited public-health authority.',
+  productiveRestatement: 'Then the real question is what level of external risk and evidence can justify a limited requirement in a specific setting.',
+  directChallenge: 'My concern is that mandates can override bodily autonomy even when benefits are uncertain or less restrictive alternatives exist.',
+  commonGround: 'I think we agree that both bodily autonomy and preventable harm to others matter, and that any requirement should be evidence-based and proportionate.',
+  evidenceRequest: 'What change in effectiveness, risk, or available alternatives would make you withdraw support for a mandate?',
+  valueResponse: 'The empirical threshold matters, but there is still a normative question about how much external risk permits coercion.',
+  finalClearDisagreement: 'I understand your threshold model, but I would require a larger external-risk reduction before permitting a mandate.',
+  finalValueDisagreement: 'We differ on how strongly bodily autonomy should constrain institutions when an individual medical choice affects shared risk.'
+})
+
+export const nuclearEnergy = createResearchScenario({
+  id: 'nuclear-energy', title: 'Nuclear energy', domain: 'energy policy',
+  description: 'A disagreement about nuclear power, climate goals, cost, reliability, waste, and accident risk.',
+  proposition: 'Should countries expand nuclear power as a major part of decarbonizing electricity?',
+  partnerName: 'Elias', partnerPosition: 'Elias supports expanding nuclear power alongside renewables as part of a low-carbon electricity system.',
+  opening: 'If decarbonization is the goal, I think ruling out nuclear makes the problem harder. It offers large amounts of low-carbon power independent of weather.',
+  clarification: 'What role do you imagine nuclear playing relative to renewables, storage, transmission, and demand management?',
+  evidenceQuestion: 'I would compare full-system cost, construction time, capacity factors, financing risk, grid reliability, lifecycle emissions, waste management, and plausible alternatives in each country.',
+  evidenceLimit: 'Those comparisons are highly system-specific, so we need actual project and grid assumptions before claiming one mix is clearly superior.',
+  valueTradeoff: 'Part of the disagreement is how we weight low-probability severe risks and long-lived waste against climate risk, land use, and reliability constraints.',
+  userConcern: 'whether nuclear expansion creates excessive cost, waste, and accident risk compared with cleaner alternatives',
+  exaggeratedConcern: 'So you are willing to accept nuclear disasters and radioactive waste just to keep reactors running?',
+  partnerCorrection: 'No. Those risks matter. My claim is that they should be compared with the risks and system costs of the alternatives rather than treated as automatically disqualifying.',
+  productiveRestatement: 'So the narrower question is whether nuclear’s total system benefits exceed its cost, waste, and accident risks in particular grids.',
+  directChallenge: 'My concern is that new reactors can be slow and expensive enough to crowd out faster decarbonization options.',
+  commonGround: 'I think we both want a low-carbon grid that is reliable, affordable, and honest about the risks of every technology.',
+  evidenceRequest: 'What construction-cost or schedule performance would make you conclude that nuclear is not worthwhile in a particular country?',
+  valueResponse: 'Even with good cost estimates, we may still weight catastrophic tail risk and long-lived waste differently.',
+  finalClearDisagreement: 'I accept nuclear as potentially useful, but I think its cost and delivery risks justify a smaller role than you do.',
+  finalValueDisagreement: 'We differ on how to weigh rare severe nuclear risks and waste obligations against climate, reliability, and land-use risks from alternative systems.'
+})
+
+export const researchScenarios = [
+  climatePolicy,
+  immigrationBorders,
+  campusSpeech,
+  policingPublicSafety,
+  abortionLaw,
+  taxationWelfare,
+  genderNeutralLanguage,
+  vaccineMandates,
+  nuclearEnergy
+]
