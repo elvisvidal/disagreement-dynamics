@@ -91,6 +91,46 @@ describe('research milestone content', () => {
       }
     }
   })
+
+  it('predeclares matched phrasing pairs and hypotheses without replacing observed replay analysis', () => {
+    for (const scenario of researchScenarios) {
+      expect(scenario.research).toBeTruthy()
+      expect(scenario.research?.hypotheses.length).toBeGreaterThanOrEqual(2)
+      expect(scenario.research?.phrasingPairs.length).toBeGreaterThanOrEqual(2)
+      expect(scenario.research?.expectedLoopSignature).toEqual([
+        'position_exaggeration',
+        'interpretive_lock',
+        'meta_argument',
+        'interpretive_lock'
+      ])
+
+      const responses = Object.values(scenario.nodes).flatMap((node) => node.responses ?? [])
+      const responseTexts = new Set(responses.map((response) => response.text))
+      const responseMoves = new Set(responses.map((response) => response.moveType))
+      const terminalOutcomes = new Set(
+        Object.values(scenario.nodes)
+          .map((node) => node.terminalStatus)
+          .filter(Boolean)
+      )
+
+      for (const pair of scenario.research?.phrasingPairs ?? []) {
+        expect(pair.higherLoopRisk.text).not.toBe(pair.lowerLoopRisk.text)
+        expect(pair.higherLoopRisk.moveType).not.toBe(pair.lowerLoopRisk.moveType)
+        expect(responseTexts.has(pair.higherLoopRisk.text), `${scenario.id} missing higher-risk phrase`).toBe(true)
+        expect(responseTexts.has(pair.lowerLoopRisk.text), `${scenario.id} missing lower-risk phrase`).toBe(true)
+      }
+
+      for (const hypothesis of scenario.research?.hypotheses ?? []) {
+        for (const move of [...hypothesis.expectedLoopMoves, ...hypothesis.expectedRepairMoves]) {
+          expect(responseMoves.has(move), `${scenario.id} hypothesis references unused move ${move}`).toBe(true)
+        }
+      }
+
+      for (const outcome of scenario.research?.expectedProductiveOutcomes ?? []) {
+        expect(terminalOutcomes.has(outcome), `${scenario.id} missing expected outcome ${outcome}`).toBe(true)
+      }
+    }
+  })
 })
 
 describe('replay research summaries', () => {

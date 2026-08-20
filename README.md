@@ -32,6 +32,8 @@ npm run test
 npm run build
 ```
 
+Pull requests targeting `main` also run these checks through `.github/workflows/pr-ci.yml` before merge.
+
 ## Architecture
 
 The app keeps four layers separate:
@@ -131,6 +133,19 @@ curiosity
 → scope narrowing
 → clear disagreement
 ```
+
+## Predeclared Research Designs
+
+Each generated research scenario now carries research metadata that is defined before the user completes a path:
+
+- explicit hypotheses about loop-producing and repair-oriented move sequences
+- matched phrasing pairs that express the same underlying concern with different conversational framing
+- expected productive terminal outcomes
+- an expected loop signature
+
+For example, a scenario can pair a `position_exaggeration` response with a `respectful_challenge` response aimed at the same underlying concern. A second pair compares rejecting a clarification with explicitly repairing the earlier interpretation.
+
+This predeclared metadata is deliberately separate from the candidate hypotheses generated after replay. The former says what the scenario was designed to test; the latter summarizes patterns visible in the completed paths. Neither should be treated as empirical confirmation without participant data and an appropriate study design.
 
 ## Replay Research Data
 

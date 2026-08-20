@@ -1,4 +1,5 @@
 import type { MoveFamily, MoveType } from './moves'
+import type { ScenarioResearchMetadata } from './research'
 
 export interface ConversationMetrics {
   issueClarity: number
@@ -147,6 +148,7 @@ export interface ConversationScenario {
   nodes: Record<string, ConversationNode>
   tags?: string[]
   researchFocus?: string
+  research?: ScenarioResearchMetadata
 }
 
 export const initialMetrics: ConversationMetrics = {
