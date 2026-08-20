@@ -83,7 +83,8 @@ export function createResearchScenario(seed: ResearchScenarioSeed): Conversation
         responses: [
           { id: 'clarified-narrow', text: seed.productiveRestatement, moveType: 'scope_narrowing', nextNodeId: 'evidence', effects: { issueClarity: 14, mutualUnderstanding: 10, trust: 7, topicDrift: -5, loopRisk: -7 } },
           { id: 'clarified-evidence', text: seed.evidenceRequest, moveType: 'evidence_request', nextNodeId: 'evidence', effects: { issueClarity: 9, mutualUnderstanding: 4, topicDrift: -3 } },
-          { id: 'clarified-motive', text: `That sounds like a convenient way to protect the conclusion you already prefer.`, moveType: 'motive_attribution', nextNodeId: 'meta', effects: { issueClarity: -7, defensiveness: 15, trust: -14, topicDrift: 12, loopRisk: 14 }, annotations: { introducedMetaDispute: `Whether ${seed.partnerName} is reasoning in good faith` } }
+          { id: 'clarified-partial', text: 'I can accept that narrower principle if the policy also contains clear limits for the concern I raised.', moveType: 'concession', nextNodeId: 'partial', effects: { issueClarity: 12, mutualUnderstanding: 11, trust: 9, defensiveness: -7, loopRisk: -6 } },
+          { id: 'clarified-motive', text: 'That sounds like a convenient way to protect the conclusion you already prefer.', moveType: 'motive_attribution', nextNodeId: 'meta', effects: { issueClarity: -7, defensiveness: 15, trust: -14, topicDrift: 12, loopRisk: 14 }, annotations: { introducedMetaDispute: `Whether ${seed.partnerName} is reasoning in good faith` } }
         ]
       },
       evidence: {
@@ -91,6 +92,7 @@ export function createResearchScenario(seed: ResearchScenarioSeed): Conversation
         responses: [
           { id: 'evidence-accept-limit', text: 'That sounds testable in principle, but I do not think we have enough evidence here to settle it.', moveType: 'acknowledgement', nextNodeId: 'evidence-impasse', effects: { issueClarity: 12, mutualUnderstanding: 9, trust: 6, defensiveness: -5 } },
           { id: 'evidence-value', text: seed.valueResponse, moveType: 'reframing', nextNodeId: 'values', effects: { issueClarity: 8, mutualUnderstanding: 6, topicDrift: 1 } },
+          { id: 'evidence-agree', text: 'If those are the standards we both want the policy judged by, I think we may agree on more than we first thought.', moveType: 'common_ground', nextNodeId: 'agreement', effects: { issueClarity: 12, mutualUnderstanding: 13, trust: 11, defensiveness: -8, loopRisk: -7 } },
           { id: 'evidence-burden', text: 'If you cannot prove your position works in every important case, why should anyone accept it?', moveType: 'burden_shift', nextNodeId: 'meta', effects: { issueClarity: -4, defensiveness: 9, trust: -7, loopRisk: 10 }, annotations: { introducedMetaDispute: 'Whether one side has an impossible proof burden' } }
         ]
       },
@@ -119,6 +121,8 @@ export function createResearchScenario(seed: ResearchScenarioSeed): Conversation
           { id: 'meta-dismiss', text: 'If you cannot see why your reasoning is the problem, there is not much point continuing.', moveType: 'epistemic_invalidation', nextNodeId: 'breakdown', effects: { issueClarity: -10, mutualUnderstanding: -13, defensiveness: 19, trust: -19, topicDrift: 14, loopRisk: 18 } }
         ]
       },
+      agreement: { id: 'agreement', speaker: 'partner', stateLabel: 'Agreement', stateKind: 'terminal', text: 'Then we have converged on a shared standard, even if the exact implementation would still need evidence.', terminalStatus: 'agreement', finalDisagreement: 'No major conceptual disagreement remains on this path.' },
+      partial: { id: 'partial', speaker: 'partner', stateLabel: 'Partial agreement', stateKind: 'terminal', text: 'That sounds like a genuine partial agreement: the principle is acceptable with narrower limits around the concern you raised.', terminalStatus: 'partial-agreement', finalDisagreement: seed.userConcern },
       'evidence-impasse': { id: 'evidence-impasse', speaker: 'partner', stateLabel: 'Evidence impasse', stateKind: 'terminal', text: seed.evidenceLimit, terminalStatus: 'evidence-impasse', finalDisagreement: 'The participants agree on what evidence would matter but do not currently have enough of it.' },
       clear: { id: 'clear', speaker: 'partner', stateLabel: 'Clear disagreement', stateKind: 'terminal', text: 'That seems like the real disagreement. We understand the tradeoff, but we weight it differently.', terminalStatus: 'clear-disagreement', finalDisagreement: seed.finalClearDisagreement },
       'value-impasse': { id: 'value-impasse', speaker: 'partner', stateLabel: 'Value impasse', stateKind: 'terminal', text: 'Then the remaining difference is mainly about which value should take priority, not about misunderstanding each other.', terminalStatus: 'value-impasse', finalDisagreement: seed.finalValueDisagreement },
