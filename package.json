@@ -1,0 +1,22 @@
+{
+  "name": "disagreement-dynamics",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "prepare": "nuxt prepare",
+    "test": "nuxt prepare && vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.2",
+    "nuxt": "^3.12.4",
+    "vue": "^3.4.35"
+  },
+  "devDependencies": {
+    "@vue/test-utils": "^2.4.6",
+    "vitest": "^2.0.5",
+    "typescript": "^5.5.4"
+  }
+}
