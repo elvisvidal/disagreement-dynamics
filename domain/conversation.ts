@@ -1,4 +1,5 @@
-import type { MoveType } from './moves'
+import type { MoveFamily, MoveType } from './moves'
+import type { ScenarioResearchMetadata } from './research'
 
 export interface ConversationMetrics {
   issueClarity: number
@@ -65,6 +66,19 @@ export interface ConversationState extends ConversationSnapshot {
   replayingFromTurn?: number
 }
 
+export interface PathResearchSummary {
+  sequenceSignature: string
+  moveSequence: MoveType[]
+  familySequence: MoveFamily[]
+  transitionPairs: string[]
+  lowLoopMoves: number
+  highLoopMoves: number
+  inquiryMoves: number
+  repairMoves: number
+  derailmentMoves: number
+  escalationMoves: number
+}
+
 export interface CompletedPath {
   id: string
   label: string
@@ -75,6 +89,14 @@ export interface CompletedPath {
   defensiveness: number
   moveHistory: ConversationMove[]
   divergenceTurn?: number
+  research: PathResearchSummary
+}
+
+export interface CandidateHypothesis {
+  id: string
+  title: string
+  statement: string
+  observable: string
 }
 
 export interface ConversationNode {
@@ -124,6 +146,9 @@ export interface ConversationScenario {
   }
   initialNodeId: string
   nodes: Record<string, ConversationNode>
+  tags?: string[]
+  researchFocus?: string
+  research?: ScenarioResearchMetadata
 }
 
 export const initialMetrics: ConversationMetrics = {
